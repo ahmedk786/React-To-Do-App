@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem; /* ensures space on small screens */
+  padding: 1rem; /* space for small devices */
 }
 
 .app-container {
@@ -30,7 +30,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap; /* allow wrapping on small screens */
+  flex-wrap: wrap;
 }
 
 .todo-input {
@@ -48,7 +48,7 @@ body {
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
-  white-space: nowrap; /* prevents text wrapping */
+  white-space: nowrap;
 }
 
 .todo-list {
@@ -67,7 +67,7 @@ body {
   margin-bottom: 10px;
   background: #f9f9f9;
   transition: all 0.3s ease;
-  word-break: break-word; /* handles long words */
+  word-break: break-word;
 }
 
 .todo-item.completed span {
@@ -99,7 +99,7 @@ body {
   border-radius: 6px;
 }
 
-/* 📱 Mobile styles */
+/* 📱 Mobile (≤480px) */
 @media (max-width: 480px) {
   .app-container {
     padding: 1rem;
@@ -122,9 +122,35 @@ body {
   }
 }
 
-/* 📲 Tablet styles */
+/* 📲 Tablet (≤768px) */
 @media (max-width: 768px) {
   .app-container {
     max-width: 90%;
+  }
+}
+
+/* 💻 Laptop screens (1024px – 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .app-container {
+    max-width: 600px; /* wider on laptop */
+    padding: 2.5rem;
+  }
+
+  .app-title {
+    font-size: 1.8rem;
+  }
+
+  .todo-input {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .add-btn {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+
+  .todo-item {
+    padding: 12px;
   }
 }
