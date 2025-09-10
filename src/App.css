@@ -6,6 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem; /* ensures space on small screens */
 }
 
 .app-container {
@@ -13,20 +14,23 @@ body {
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  width: 400px;
-  max-width: 90%;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 .app-title {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
+  font-size: 1.5rem;
 }
 
 .todo-form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .todo-input {
@@ -34,6 +38,7 @@ body {
   padding: 10px;
   border: 2px solid #667eea;
   border-radius: 8px;
+  min-width: 0;
 }
 
 .add-btn {
@@ -43,11 +48,13 @@ body {
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
+  white-space: nowrap; /* prevents text wrapping */
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .todo-item {
@@ -60,6 +67,7 @@ body {
   margin-bottom: 10px;
   background: #f9f9f9;
   transition: all 0.3s ease;
+  word-break: break-word; /* handles long words */
 }
 
 .todo-item.completed span {
@@ -70,6 +78,7 @@ body {
 .actions {
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .icon-btn {
@@ -88,4 +97,34 @@ body {
   padding: 6px;
   border: 1px solid #667eea;
   border-radius: 6px;
+}
+
+/* 📱 Mobile styles */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .app-title {
+    font-size: 1.2rem;
+  }
+
+  .todo-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .add-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+}
+
+/* 📲 Tablet styles */
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 90%;
+  }
 }
