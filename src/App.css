@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem; /* space for small devices */
+  padding: 1rem; /* ensures spacing on smaller devices */
 }
 
 .app-container {
@@ -67,7 +67,7 @@ body {
   margin-bottom: 10px;
   background: #f9f9f9;
   transition: all 0.3s ease;
-  word-break: break-word;
+  word-break: break-word; /* prevents overflow of long text */
 }
 
 .todo-item.completed span {
@@ -111,14 +111,22 @@ body {
   }
 
   .todo-form {
-    flex-direction: column;
+    flex-direction: column; /* stack input + button */
     gap: 8px;
   }
 
+  .todo-input {
+    width: 100%; /* full width input */
+    padding: 12px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
   .add-btn {
-    width: 100%;
+    width: 100%; /* full width button */
     text-align: center;
     padding: 12px;
+    font-size: 1rem;
   }
 }
 
@@ -129,10 +137,10 @@ body {
   }
 }
 
-/* 💻 Laptop screens (1024px – 1366px) */
+/* 💻 Laptop (1024px – 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .app-container {
-    max-width: 600px; /* wider on laptop */
+    max-width: 600px; /* wider container */
     padding: 2.5rem;
   }
 
@@ -152,5 +160,16 @@ body {
 
   .todo-item {
     padding: 12px;
+  }
+}
+
+/* 🖥️ Desktop (≥1440px) */
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 700px; /* more spacious on big screens */
+  }
+
+  .app-title {
+    font-size: 2rem;
   }
 }
